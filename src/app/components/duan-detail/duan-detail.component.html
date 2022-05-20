@@ -1,0 +1,27 @@
+<div class="my-3">
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <div class="clearfix mb-3"></div>
+
+        <div class="my-2 text-center">
+          <h1>{{ duanDetail.tenDuAn }}</h1>
+          <p>{{ duanDetail.moTa }}</p>
+          <p>{{ duanDetail.tien | currency : "VND"}}</p>
+          <p>{{ duanDetail.ngayStart }}</p>
+          <p>Leader: {{ duanDetail.leader }}</p>
+        </div>
+        <div class="mb-3">
+          <!-- <h2 class="text-uppercase text-center role">{{ duanDetail.moTa }}</h2> -->
+        </div>
+        <div class="box">
+          <!-- <span class="badge mx-2 rounded-pill bg-primary"
+            >Độ ưu tiên: {{ duanDetail.priority }}</span
+          > -->
+          <!-- <span class="badge mx-2 rounded-pill bg-info">Mã nhân viên: {{ duanDetail.ma}}</span>
+          <span class="badge mx-2 rounded-pill bg-success">Mã dự án: 4</span> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

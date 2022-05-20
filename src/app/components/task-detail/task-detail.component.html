@@ -1,0 +1,28 @@
+<div class="my-3">
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <div class="clearfix mb-3"></div>
+
+        <div class="my-2 text-center">
+          <h1>{{ taskDetail.tenTask }}</h1>
+          <p>{{ taskDetail.moTa }}</p>
+          <p>{{ taskDetail.tien | currency: "VND" }}</p>
+          <p>{{ taskDetail.ngayStart }}</p>
+        </div>
+        <div class="mb-3">
+          <!-- <h2 class="text-uppercase text-center role">{{ taskDetail.moTa }}</h2> -->
+        </div>
+        <div class="box text-center">
+          <span class="badge mx-2 rounded-pill bg-primary"
+            >Độ ưu tiên: {{ taskDetail.priority }}</span
+          >
+          <span class="badge mx-2 rounded-pill bg-info"
+            >Mã nhân viên: {{ taskDetail.nhanvienID }}</span
+          >
+          <span class="badge mx-2 rounded-pill bg-success">Mã dự án: {{ taskDetail. duAnID }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h4 class="my-3 p-3 fs-5 shadow-lg rounded">DANH SÁCH TASK</h4>
+<table class="table table-no-more my-4">
+  <thead>
+    <tr>
+      <th>Tên task</th>
+      <th>Mô tả task</th>
+      <th>Độ ưu tiên</th>
+      <th>Mã dự án</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr [routerLink]="['/task-detail', task.id]" *ngFor="let task of listTask">
+      <td>{{ task.tenTask }}</td>
+
+      <td>{{ task.moTa }}</td>
+
+      <td>{{ task.priority }}</td>
+
+      <td>{{ task.duAnID }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<h4 class="my-3 p-3 fs-5 shadow-lg rounded">DANH SÁCH DỰ ÁN</h4>
+<table class="table table-no-more my-4">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tên dự án</th>
+      <th>Ngày bắt đầu</th>
+      <th>Tiền</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr [routerLink]="['/duan-detail', da.id]" *ngFor="let da of listDuAn">
+      <td>{{ da.id }}</td>
+
+      <td>{{ da.tenDuAn }}</td>
+
+      <td>{{ da.ngayStart }}</td>
+
+      <td>{{ da.tien }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-md-auto gap-2" style="margin-right: 30px">
+        <li class="nav-item rounded">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            aria-current="page"
+            [routerLink]="['/home']"
+            ><i class="bi bi-house-fill me-2"></i>Bảng điều khiển</a
+          >
+        </li>
+        <li class="nav-item rounded">
+          <a
+            class="nav-link"
+            [routerLink]="['/about']"
+            routerLinkActive="active"
+            ><i class="bi bi-people-fill me-2"></i>Giới thiệu</a
+          >
+        </li>
+        <li class="nav-item dropdown rounded">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="bi bi-person-fill me-2"></i>Dự án</a
+          >
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/duan-them']"
+                >Thêm dự án mới</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/duan-list']"
+                >Danh sách dự án</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown rounded">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="bi bi-person-fill me-2"></i>Task</a
+          >
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/task-them']"
+                >Thêm task</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/task-list']"
+                >Danh sách task</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown rounded">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="bi bi-person-fill me-2"></i>Nhân viên</a
+          >
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/employee-them']"
+                >Thêm nhân viên</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/employee-list']"
+                >Danh sách nhân viên</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" (submit)="handleSearch()">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Từ khóa"
+          aria-label="Search"
+          name="searchKeyword"
+          [(ngModel)]="searchKeyword"
+        />
+        <button class="btn btn-outline-success" type="submit">Tìm</button>
+      </form>
+    </div>
+  </div>
+</nav>

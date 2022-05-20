@@ -1,0 +1,22 @@
+<h4 class="my-3 p-3 fs-5 shadow-lg rounded">DANH SÁCH NHÂN VIÊN</h4>
+<table class="table table-no-more my-4">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Phái</th>
+      <th>Khu vực</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let employee of listNhanVien">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.ho }} {{ employee.ten }}</td>
+      <td>{{ employee.ngaysinh }}</td>
+      <td>{{ employee.phai }}</td>
+      <td>{{ employee.khuvuc }}</td>
+    </tr>
+  </tbody>
+</table>

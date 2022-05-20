@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  handleFilterDuAn = (kq: any) => {
+    console.log("QK", kq);
+  }
   title = 'PS18239_DaoDucMinhKhoi_ASM';
 }
