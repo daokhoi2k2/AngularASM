@@ -5,6 +5,7 @@ import { DuanDetailComponent } from './components/duan-detail/duan-detail.compon
 import { DuanListComponent } from './components/duan-list/duan-list.component';
 import { DuanThemComponent } from './components/duan-them/duan-them.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeThemComponent } from './components/employee-them/employee-them.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'employee-list',
     component: EmployeeListComponent,
+  },
+  {
+    path: 'employee-them',
+    component: EmployeeThemComponent,
   },
   {
     path: 'task-list',

@@ -1,20 +1,20 @@
-<form class="mt-3">
+<form #addDuAn="ngForm" (ngSubmit)="xuly(addDuAn)" class="mt-3">
   <h4 class="my-3 p-3 fs-5 shadow-lg rounded">THÊM DỰ ÁN</h4>
 
   <p class="mb-3" type="text">
     Tên dự án
-    <input class="form-control" name="tenDuAn" [(ngModel)]="duAn.tenDuAn" />
+    <input class="form-control" required #loiun="ngModel" minlength="5" name="tenDuAn" ngModel />
   </p>
   <p class="mb-3" type="text">
     Ngày bắt đầu
-    <input class="form-control" name="ngayStart" [(ngModel)]="duAn.ngayStart" />
+    <input class="form-control" required minlength="3" #loiun="ngModel" name="ngayStart" ngModel />
   </p>
   <p class="mb-3">
-    Tiền <input class="form-control" name="tien" [(ngModel)]="duAn.tien" />
+    Tiền <input class="form-control" name="tien" ngModel/>
   </p>
   <p class="mb-3">
     Leader
-    <select class="form-control" name="leader" [(ngModel)]="duAn.leader">
+    <select class="form-control" name="leader" ngModel>
       <option>-</option>
       <option>Đào Đức Minh Khôi</option>
       <option>Trần Cao Gia Luật</option>
@@ -27,12 +27,15 @@
       size="5"
       class="form-control"
       name="thanhvien"
-      [(ngModel)]="duAn.thanhvien"
+      ngModel
     >
       <option [value]="nv.id" *ngFor="let nv of employeeList">
         {{ nv.ho }} {{ nv.ten }}
       </option>
     </select>
   </p>
-  <p><button class="btn btn-primary p-2" (click)="handleAddDuAn()">Thêm dự án</button></p>
+  <p><button class="btn btn-primary p-2">Thêm dự án</button></p>
+  <p>{{addDuAn.value | json}}</p>
+  <p>{{loiun.errors | json}}</p>
+  <p>{{loiun.errors | json}}</p>
 </form>

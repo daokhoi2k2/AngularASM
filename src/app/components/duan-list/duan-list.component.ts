@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
+import { Router } from '@angular/router';
 import { DuAn } from 'src/app/du-an';
 import { DuanService } from 'src/app/services/duan.service';
 
@@ -8,9 +9,24 @@ import { DuanService } from 'src/app/services/duan.service';
   styleUrls: ['./duan-list.component.scss'],
 })
 export class DuanListComponent implements OnInit {
-  listDuAn: DuAn[] = []
-  constructor(private duanService: DuanService) {
+  listDuAn: DuAn[] = [];
+  constructor(private duanService: DuanService, private router: Router) {
     this.listDuAn = duanService.listDuAn;
+  }
+
+  handleDeleteDuAn = (e: Event, id: number) => {
+    e.stopPropagation();
+    this.duanService.deleteDuAn(id);
+    // this.router.navigate(['/']);
+  };
+
+  pushDuAn() {
+    // this.duanService.pushDuAn();
+  }
+
+  ngDoCheck() {
+    console.log("Checked")
+    // this.listDuAn = this.duanService.listDuAn;
   }
 
   ngOnInit(): void {}

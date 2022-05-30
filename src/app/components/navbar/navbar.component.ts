@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, SimpleChange } from '@angular/core';
+import { Router } from '@angular/router';
 import { DuanService } from 'src/app/services/duan.service';
 
 @Component({
@@ -9,11 +10,14 @@ import { DuanService } from 'src/app/services/duan.service';
 export class NavbarComponent implements OnInit {
   searchKeyword: string = '';
   @Output() onFilterDuAn = new EventEmitter();
-  constructor(private duanService: DuanService) {}
+  constructor(private duanService: DuanService, private router: Router) {}
   handleSearch = () => {
     const kq = this.duanService.onFilter(this.searchKeyword);
     this.onFilterDuAn.emit(kq as any);
+    console.log("Change");
+    this.router.navigate(['/']);
   }
+
   ngOnInit(): void {
   }
 }

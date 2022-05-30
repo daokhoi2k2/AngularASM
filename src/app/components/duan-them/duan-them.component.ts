@@ -12,20 +12,25 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class DuanThemComponent implements OnInit {
   employeeList: NhanVien[] = [];
-  duAn: DuAn = {} as DuAn;
   constructor(
     private employeeService: EmployeeService,
     private duAnService: DuanService,
     private router: Router
   ) {}
 
-  handleAddDuAn = () => {
-    this.duAn.id = this.duAnService.listDuAn.length + 1;
-    this.duAnService.listDuAn.push(this.duAn);
-    this.router.navigate(['/duan-list']);
-  };
+    xuly(form: any) {
+      const { valid, value } = form;
+      if(valid) {
+        this.duAnService.listDuAn.push(value);
+        this.router.navigate(['/duan-list']);
+    }
+  }
 
   ngOnInit(): void {
     this.employeeList = this.employeeService.listNhanVien;
+  }
+
+  ngOnChecked() {
+    console.log("Changed");
   }
 }

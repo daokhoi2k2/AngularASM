@@ -1,0 +1,5 @@
+input.ng-invalid {
+  &:not(.ng-untouched) {
+    background-color: rgb(214, 103, 103);
+  }
+}

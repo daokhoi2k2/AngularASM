@@ -58,15 +58,33 @@ export class DuanService {
 
   onFilter = (searchKeyword: string) => {
     const result = this.listDuAn.filter((item) => {
-        const reg = new RegExp(searchKeyword);
-        if(item.tenDuAn.toLowerCase().search(reg) !== -1) {
-          return 1;
-        }
+      const reg = new RegExp(searchKeyword);
+      if (item.tenDuAn.toLowerCase().search(reg) !== -1) {
+        return 1;
+      }
 
-        return 0;
-    })
+      return 0;
+    });
 
     return result;
+  };
+
+  deleteDuAn = (id: number) => {
+    this.listDuAn = this.listDuAn.filter((item) => {
+      return item.id !== id;
+    });
+  };
+
+  pushDuAn = () => {
+    this.listDuAn.push({
+      id: 3,
+      tenDuAn: 'Website Văn hóa Việt',
+      ngayStart: '2022-04-15',
+      tien: 35000000,
+      leader: 2,
+      thanhvien: [2, 4, 1],
+    })
   }
+
   constructor() {}
 }

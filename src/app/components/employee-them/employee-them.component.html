@@ -1,1 +1,27 @@
-<p>employee-them works!</p>
+<form class="mt-3" [formGroup]="addNhanVien">
+  <h4 class="my-3 p-3 fs-5 shadow-lg rounded">THÊM DỰ ÁN</h4>
+
+  <p class="mb-3" type="text">
+    Họ tên
+    <input class="form-control" formControlName="fullName" name="tenDuAn" />
+    <em *ngIf="addNhanVien.controls['fullName']?.errors && addNhanVien.controls['fullName'].dirty" class="text-danger" >
+      Fullname là bắt buộc và ít nhất là 5 ký tự
+    </em>
+  </p>
+  <p class="mb-3" type="text">
+    Sinh nhật
+    <input class="form-control" formControlName="birthDay" name="birthDay" />
+  </p>
+  <p class="mb-3">
+    Khu vực <input class="form-control" formControlName="district" name="tien" />
+  </p>
+  <p class="mb-3">
+    Giới tính
+    <select class="form-control" formControlName="sex" name="leader">
+      <option>-</option>
+      <option>Nam</option>
+      <option>Nữ</option>
+    </select>
+  </p>
+  <p><button class="btn btn-primary p-2" (click)="xuly()">Thêm dự án</button></p>
+</form>
