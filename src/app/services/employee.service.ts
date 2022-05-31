@@ -48,5 +48,32 @@ export class EmployeeService {
       khuvuc: 'Trung',
     },
   ];
+
+  deleteEmployee = (id: number) => {
+    this.listNhanVien = this.listNhanVien.filter((item) => {
+      return item.id !== id;
+    });
+  };
+
+  addEmployee = (employee: NhanVien) => {
+    employee.id = this.listNhanVien.length + 1;
+    this.listNhanVien.push(employee);
+  };
+
+  updateEmployee = (id: number, data: NhanVien) => {
+    const index = this.listNhanVien.findIndex((item: NhanVien) => {
+      return item.id === id;
+    });
+
+    data.id = id;
+    this.listNhanVien[index] = data;
+  };
+
+  getEmployee = (id: number) => {
+    return this.listNhanVien.filter((item) => {
+      return item.id === id;
+    })[0];
+  };
+
   constructor() {}
 }

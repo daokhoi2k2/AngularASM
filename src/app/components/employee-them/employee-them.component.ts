@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-them',
@@ -8,20 +10,24 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EmployeeThemComponent implements OnInit {
   addNhanVien!: FormGroup;
-  constructor() { }
+  constructor(private employeeService: EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
     this.addNhanVien = new FormGroup({
-      fullName: new FormControl("", [Validators.minLength(5), Validators.required]),
-      birthDay: new FormControl("", [Validators.minLength(5)]),
-      sex: new FormControl(),
-      district: new FormControl(),
+      ho: new FormControl("", [Validators.required]),
+      ten:  new FormControl("", [Validators.required]),
+      ngaysinh: new FormControl(""),
+      phai: new FormControl(),
+      khuvuc: new FormControl(),
     })
   }
 
   xuly() {
-    console.log(this.addNhanVien.value);
-    console.log("Validate", this.addNhanVien.controls['fullName'])
+    if(this.addNhanVien.valid) {
+      console.log(this.addNhanVien.value)
+      this.employeeService.addEmployee(this.addNhanVien.value);
+      this.router.navigate(["/employee-list"])
+    }
   }
 
 }

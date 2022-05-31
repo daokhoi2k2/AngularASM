@@ -9,9 +9,17 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   listNhanVien: NhanVien[] = [];
-  constructor(private employeeService: EmployeeService) {
-    this.listNhanVien = employeeService.listNhanVien;
+  constructor(private employeeService: EmployeeService) {}
+
+  handleDeleteEmployee(e: any, id: number) {
+    this.employeeService.deleteEmployee(id);
   }
 
-  ngOnInit(): void {}
+  ngDoCheck() {
+    this.listNhanVien = this.employeeService.listNhanVien;
+  }
+
+  ngOnInit(): void {
+    this.listNhanVien = this.employeeService.listNhanVien;
+  }
 }

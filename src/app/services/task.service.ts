@@ -88,5 +88,32 @@ export class TaskService {
       priority: 2,
     },
   ];
+
+  deleteTask = (id: number) => {
+    this.listTask = this.listTask.filter((item) => {
+      return item.id !== id;
+    });
+  };
+
+  addTask = (task: Task) => {
+    task.id = this.listTask.length + 1;
+    this.listTask.push(task);
+  }
+
+  updateTask = (id: number, data: Task) => {
+    const index = this.listTask.findIndex((item: Task) => {
+      return item.id === id;
+    });
+
+    data.id = id;
+    this.listTask[index] = data;
+  }
+
+  getTask = (id: number) => {
+    return this.listTask.filter((item) => {
+      return item.id === id;
+    })[0];
+  }
+
   constructor() {}
 }

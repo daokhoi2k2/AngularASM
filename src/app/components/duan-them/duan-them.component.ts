@@ -21,6 +21,7 @@ export class DuanThemComponent implements OnInit {
     xuly(form: any) {
       const { valid, value } = form;
       if(valid) {
+        value.id = this.duAnService.listDuAn.length + 1;
         this.duAnService.listDuAn.push(value);
         this.router.navigate(['/duan-list']);
     }

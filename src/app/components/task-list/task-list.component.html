@@ -5,7 +5,7 @@
       <th>Tên task</th>
       <th>Mô tả task</th>
       <th>Độ ưu tiên</th>
-      <th>Mã dự án</th>
+      <th>Điều khiển</th>
     </tr>
   </thead>
 
@@ -17,7 +17,10 @@
 
       <td>{{ task.priority }}</td>
 
-      <td>{{ task.duAnID }}</td>
+      <td class="controlPanel">
+        <button [routerLink]="['/task-sua', task.id]" class="btn btn-warning mx-2">Sửa</button>
+        <button  (click)="handleDeleteTask($event, task.id)" class="btn btn-danger mx-2">Xóa</button>
+      </td>
     </tr>
   </tbody>
 </table>

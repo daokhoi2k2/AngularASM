@@ -11,7 +11,16 @@ export class TaskListComponent implements OnInit {
   listTask: Task[] = [];
   constructor(private taskService: TaskService) {}
 
+  handleDeleteTask(e: any, id: number) {
+    e.stopPropagation();
+    this.taskService.deleteTask(id);
+  }
+
   ngOnInit(): void {
+    this.listTask = this.taskService.listTask;
+  }
+
+  ngDoCheck() {
     this.listTask = this.taskService.listTask;
   }
 }

@@ -86,5 +86,20 @@ export class DuanService {
     })
   }
 
+  updateDuAn = (id: number, data: DuAn) => {
+    const index = this.listDuAn.findIndex((item: DuAn) => {
+      return item.id === id;
+    });
+
+    data.id = id;
+    this.listDuAn[index] = data;
+  }
+
+  getDuAn = (id: number) => {
+    return this.listDuAn.filter((item) => {
+      return item.id === id;
+    })[0];
+  }
+
   constructor() {}
 }

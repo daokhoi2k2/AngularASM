@@ -2,26 +2,46 @@
   <h4 class="my-3 p-3 fs-5 shadow-lg rounded">THÊM DỰ ÁN</h4>
 
   <p class="mb-3" type="text">
-    Họ tên
-    <input class="form-control" formControlName="fullName" name="tenDuAn" />
-    <em *ngIf="addNhanVien.controls['fullName']?.errors && addNhanVien.controls['fullName'].dirty" class="text-danger" >
-      Fullname là bắt buộc và ít nhất là 5 ký tự
+    Họ
+    <input class="form-control" formControlName="ho" />
+    <em
+      *ngIf="
+        addNhanVien.controls['ho']?.errors && addNhanVien.controls['ho'].dirty
+      "
+      class="text-danger"
+    >
+      Họ là bắt buộc
     </em>
   </p>
   <p class="mb-3" type="text">
+    Tên
+    <input class="form-control" formControlName="ten" />
+    <em
+      *ngIf="
+        addNhanVien.controls['ten']?.errors && addNhanVien.controls['ten'].dirty
+      "
+      class="text-danger"
+    >
+      Tên là bắt buộc
+    </em>
+  </p>
+
+  <p class="mb-3" type="text">
     Sinh nhật
-    <input class="form-control" formControlName="birthDay" name="birthDay" />
+    <input class="form-control" formControlName="ngaysinh" />
   </p>
   <p class="mb-3">
-    Khu vực <input class="form-control" formControlName="district" name="tien" />
+    Khu vực <input class="form-control" formControlName="khuvuc" />
   </p>
   <p class="mb-3">
     Giới tính
-    <select class="form-control" formControlName="sex" name="leader">
+    <select class="form-control" formControlName="phai">
       <option>-</option>
       <option>Nam</option>
       <option>Nữ</option>
     </select>
   </p>
-  <p><button class="btn btn-primary p-2" (click)="xuly()">Thêm dự án</button></p>
+  <p>
+    <button class="btn btn-primary p-2" (click)="xuly()">Thêm dự án</button>
+  </p>
 </form>

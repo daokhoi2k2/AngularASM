@@ -25,8 +25,7 @@ export class DuanListComponent implements OnInit {
   }
 
   ngDoCheck() {
-    console.log("Checked")
-    // this.listDuAn = this.duanService.listDuAn;
+    this.listDuAn = this.duanService.listDuAn;
   }
 
   ngOnInit(): void {}

@@ -7,6 +7,7 @@
       <th>Ngày sinh</th>
       <th>Phái</th>
       <th>Khu vực</th>
+      <th>Điều khiển</th>
     </tr>
   </thead>
 
@@ -15,8 +16,22 @@
       <td>{{ employee.id }}</td>
       <td>{{ employee.ho }} {{ employee.ten }}</td>
       <td>{{ employee.ngaysinh }}</td>
-      <td>{{ employee.phai }}</td>
+      <td>{{ employee.phai ? 'Nam' : 'Nữ' }}</td>
       <td>{{ employee.khuvuc }}</td>
+      <td class="controlPanel">
+        <button
+          [routerLink]="['/employee-sua', employee.id]"
+          class="btn btn-warning mx-2"
+        >
+          Sửa
+        </button>
+        <button
+          (click)="handleDeleteEmployee($event, employee.id)"
+          class="btn btn-danger mx-2"
+        >
+          Xóa
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

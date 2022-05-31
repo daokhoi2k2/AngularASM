@@ -1,1 +1,47 @@
-<p>employee-sua works!</p>
+<form class="mt-3" [formGroup]="addNhanVien">
+  <h4 class="my-3 p-3 fs-5 shadow-lg rounded">THÊM DỰ ÁN</h4>
+
+  <p class="mb-3" type="text">
+    Họ
+    <input class="form-control" formControlName="ho" />
+    <em
+      *ngIf="
+        addNhanVien.controls['ho']?.errors && addNhanVien.controls['ho'].dirty
+      "
+      class="text-danger"
+    >
+      Họ là bắt buộc
+    </em>
+  </p>
+  <p class="mb-3" type="text">
+    Tên
+    <input class="form-control" formControlName="ten" />
+    <em
+      *ngIf="
+        addNhanVien.controls['ten']?.errors && addNhanVien.controls['ten'].dirty
+      "
+      class="text-danger"
+    >
+      Tên là bắt buộc
+    </em>
+  </p>
+
+  <p class="mb-3" type="text">
+    Sinh nhật
+    <input class="form-control" formControlName="ngaysinh" />
+  </p>
+  <p class="mb-3">
+    Khu vực <input class="form-control" formControlName="khuvuc" />
+  </p>
+  <p class="mb-3">
+    Giới tính
+    <select class="form-control" formControlName="phai">
+      <option>-</option>
+      <option [value]="true">Nam</option>
+      <option [value]="false">Nữ</option>
+    </select>
+  </p>
+  <p>
+    <button class="btn btn-primary p-2" (click)="xuly()">Sửa nhân viên</button>
+  </p>
+</form>
