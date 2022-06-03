@@ -12,7 +12,9 @@ export class EmployeeListComponent implements OnInit {
   constructor(private employeeService: EmployeeService) {}
 
   handleDeleteEmployee(e: any, id: number) {
-    this.employeeService.deleteEmployee(id);
+    this.employeeService.deleteEmployee(id).subscribe(() => {
+      this.employeeService.refresh();
+    })
   }
 
   ngDoCheck() {

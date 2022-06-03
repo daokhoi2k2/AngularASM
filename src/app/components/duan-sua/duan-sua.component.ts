@@ -23,13 +23,18 @@ export class DuanSuaComponent implements OnInit {
   xuly(form: any) {
     const { valid, value } = form;
     const id = Number(this.route.snapshot.paramMap.get('id'));
+
     this.employeeList = this.employeeService.listNhanVien;
-    this.duAnService.updateDuAn(id, value);
+    this.duAnService.updateDuAn(id, value).subscribe((res) => {
+      console.log("Res update", res);
+    })
     this.router.navigate(['/duan-list']);
   }
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.employeeList = this.employeeService.listNhanVien;
-    this.duAn = this.duAnService.getDuAn(id);
+    this.duAnService.getDuAn(id).subscribe((duAn) => {
+      this.duAn = duAn;
+    })
   }
 }

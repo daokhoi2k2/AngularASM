@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { DuanListComponent } from './components/duan-list/duan-list.component';
 import { DuanThemComponent } from './components/duan-them/duan-them.component';
@@ -18,7 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DuanDetailComponent } from './components/duan-detail/duan-detail.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { DashBoardComponent } from './components/dash-board/dash-board.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +37,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     DuanDetailComponent,
     TaskDetailComponent,
+    DashBoardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

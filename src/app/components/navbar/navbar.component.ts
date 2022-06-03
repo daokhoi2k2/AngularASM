@@ -12,8 +12,8 @@ export class NavbarComponent implements OnInit {
   @Output() onFilterDuAn = new EventEmitter();
   constructor(private duanService: DuanService, private router: Router) {}
   handleSearch = () => {
-    const kq = this.duanService.onFilter(this.searchKeyword);
-    this.onFilterDuAn.emit(kq as any);
+    // const kq = this.duanService.onFilter(this.searchKeyword);
+    // this.onFilterDuAn.emit(kq as any);
     console.log("Change");
     this.router.navigate(['/']);
   }

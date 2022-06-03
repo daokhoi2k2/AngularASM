@@ -26,6 +26,15 @@
         <li class="nav-item rounded">
           <a
             class="nav-link"
+            routerLinkActive="active"
+            aria-current="page"
+            [routerLink]="['/dashboard']"
+            ><i class="bi bi-house-fill me-2"></i>Thống kê</a
+          >
+        </li>
+        <li class="nav-item rounded">
+          <a
+            class="nav-link"
             [routerLink]="['/about']"
             routerLinkActive="active"
             ><i class="bi bi-people-fill me-2"></i>Giới thiệu</a

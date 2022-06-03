@@ -13,11 +13,13 @@ export class TaskListComponent implements OnInit {
 
   handleDeleteTask(e: any, id: number) {
     e.stopPropagation();
-    this.taskService.deleteTask(id);
+    this.taskService.deleteTask(id).subscribe((res) => {
+      this.taskService.refresh();
+    })
   }
 
   ngOnInit(): void {
-    this.listTask = this.taskService.listTask;
+    this.taskService.refresh();
   }
 
   ngDoCheck() {

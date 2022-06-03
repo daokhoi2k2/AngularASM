@@ -16,17 +16,16 @@ export class DuanListComponent implements OnInit {
 
   handleDeleteDuAn = (e: Event, id: number) => {
     e.stopPropagation();
-    this.duanService.deleteDuAn(id);
-    // this.router.navigate(['/']);
+    this.duanService.deleteDuAn(id).subscribe((res) => {
+      console.log("res delete", res);
+    })
   };
-
-  pushDuAn() {
-    // this.duanService.pushDuAn();
-  }
 
   ngDoCheck() {
     this.listDuAn = this.duanService.listDuAn;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.duanService.refresh();
+  }
 }

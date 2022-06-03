@@ -18,12 +18,12 @@ export class DuanThemComponent implements OnInit {
     private router: Router
   ) {}
 
-    xuly(form: any) {
-      const { valid, value } = form;
-      if(valid) {
-        value.id = this.duAnService.listDuAn.length + 1;
-        this.duAnService.listDuAn.push(value);
+  xuly(form: any) {
+    const { valid, value } = form;
+    if (valid) {
+      this.duAnService.addDuAn(value).subscribe((res) => {
         this.router.navigate(['/duan-list']);
+      });
     }
   }
 
@@ -32,6 +32,6 @@ export class DuanThemComponent implements OnInit {
   }
 
   ngOnChecked() {
-    console.log("Changed");
+    console.log('Changed');
   }
 }

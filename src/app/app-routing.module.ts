@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { DashBoardComponent } from './components/dash-board/dash-board.component';
 import { DuanDetailComponent } from './components/duan-detail/duan-detail.component';
 import { DuanListComponent } from './components/duan-list/duan-list.component';
 import { DuanSuaComponent } from './components/duan-sua/duan-sua.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashBoardComponent,
   },
   {
     path: 'duan-list',

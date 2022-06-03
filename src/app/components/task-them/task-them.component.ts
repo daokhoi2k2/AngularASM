@@ -42,7 +42,8 @@ export class TaskThemComponent implements OnInit {
   }
 
   handleClickTask() {
-    this.taskService.addTask(this.newTask.value);
-    this.router.navigate(['/task-list']);
+    this.taskService.addTask(this.newTask.value).subscribe((res) => {
+      this.router.navigate(['/task-list']);
+    })
   }
 }

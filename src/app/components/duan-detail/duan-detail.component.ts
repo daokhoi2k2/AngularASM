@@ -10,7 +10,7 @@ import { DuanService } from 'src/app/services/duan.service';
 })
 export class DuanDetailComponent implements OnInit {
   id: any = '';
-  duanDetail: any;
+  duanDetail = {} as DuAn;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -19,9 +19,8 @@ export class DuanDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    const result = this.duanServices.listDuAn.filter((item) => {
-      return item.id == this.id;
-    })[0];
-    this.duanDetail = result;
+    this.duanServices.getDuAn(this.id).subscribe((data) => {
+      this.duanDetail = data;
+    });
   }
 }
