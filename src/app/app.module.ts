@@ -20,6 +20,9 @@ import { DuanDetailComponent } from './components/duan-detail/duan-detail.compon
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { LoginComponent } from './components/login/login.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +41,9 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
     DuanDetailComponent,
     TaskDetailComponent,
     DashBoardComponent,
+    LoginComponent,
+    ChangePasswordComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

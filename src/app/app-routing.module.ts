@@ -15,6 +15,9 @@ import { TaskDetailComponent } from './components/task-detail/task-detail.compon
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskSuaComponent } from './components/task-sua/task-sua.component';
 import { TaskThemComponent } from './components/task-them/task-them.component';
+import { AuthRequiredGuard } from './auth-required.guard';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -27,8 +30,23 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'login',
+    component: LoginComponent,
+    // canActivate: []
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: 'dashboard',
     component: DashBoardComponent,
+    canActivate: [AuthRequiredGuard],
+  },
+  {
+    path: 'login',
+    component: DashBoardComponent,
+    canActivate: [AuthRequiredGuard],
   },
   {
     path: 'duan-list',

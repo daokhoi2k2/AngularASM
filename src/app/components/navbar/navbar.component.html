@@ -14,6 +14,49 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-md-auto gap-2" style="margin-right: 30px">
+        <li class="nav-item dropdown rounded" *ngIf="isLogged">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="bi bi-person-fill me-2"></i>Xin chào {{ me?.name }}</a
+          >
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLinkActive="active"
+                [routerLink]="['/change-password']"
+                >Đổi mật khẩu</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="handleLogout()">Thoát</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item rounded" *ngIf="!isLogged">
+          <a
+            class="nav-link"
+            [routerLink]="['/register']"
+            routerLinkActive="active"
+            ><i class="bi bi-people-fill me-2"></i>Đăng ký</a
+          >
+        </li>
+        <li class="nav-item rounded" *ngIf="!isLogged">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            ><i class="bi bi-people-fill me-2"></i>Đăng nhập</a
+          >
+        </li>
+
         <li class="nav-item rounded">
           <a
             class="nav-link"
@@ -30,14 +73,6 @@
             aria-current="page"
             [routerLink]="['/dashboard']"
             ><i class="bi bi-house-fill me-2"></i>Thống kê</a
-          >
-        </li>
-        <li class="nav-item rounded">
-          <a
-            class="nav-link"
-            [routerLink]="['/about']"
-            routerLinkActive="active"
-            ><i class="bi bi-people-fill me-2"></i>Giới thiệu</a
           >
         </li>
         <li class="nav-item dropdown rounded">

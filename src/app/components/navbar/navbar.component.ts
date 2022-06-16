@@ -1,5 +1,12 @@
-import { Component, EventEmitter, OnInit, Output, SimpleChange } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  SimpleChange,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { DuanService } from 'src/app/services/duan.service';
 
 @Component({
@@ -9,15 +16,29 @@ import { DuanService } from 'src/app/services/duan.service';
 })
 export class NavbarComponent implements OnInit {
   searchKeyword: string = '';
+  isLogged: boolean = false;
+  me: any;
   @Output() onFilterDuAn = new EventEmitter();
-  constructor(private duanService: DuanService, private router: Router) {}
+  constructor(
+    private duanService: DuanService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
   handleSearch = () => {
-    // const kq = this.duanService.onFilter(this.searchKeyword);
-    // this.onFilterDuAn.emit(kq as any);
-    console.log("Change");
     this.router.navigate(['/']);
+  };
+
+  handleLogout = () =>{
+    this.authService.thoat();
   }
 
   ngOnInit(): void {
+    this.me = this.authService.getMe();
+    this.isLogged = this.authService.daDangNhap();
+  }
+
+  ngDoCheck() {
+    this.me = this.authService.getMe();
+    this.isLogged = this.authService.daDangNhap();
   }
 }
